@@ -10,11 +10,11 @@
   <link rel="stylesheet" href="css/style.css">
   <!-- <link rel="stylesheet" media="(max-width: 800px)" href="css/media-querie.css"> -->
 </head>
-<body>
+<body class="precios">
   <section id="portada" class="portada background"><!-- Portada -->
     <header id="header" class="header contenedor"><!-- Header -->
       <figure class="logotipo"><!-- Logotipo -->
-        <img src="images/invie.png" width="186" height="60" alt="Invie-logotipo"/>
+        <img src="images/invie.png" srcset="images/invie.png" width="186" height="60" alt="Invie-logotipo"/>
       </figure>
       <span class="burguer-button icon-menu" id="burguer-button"></span>
       <nav class="menu" id="menu"><!-- Menu -->
@@ -39,8 +39,12 @@
   </section>
   <section id="guitarras" class="guitarras contenedor"><!--Guitarras -->
     <h2>Nuestras guitarras</h2><!-- titulo -->
-    <div class="contenedor-iframe">
-    <iframe class="iframe" width="560" height="315" src="https://www.youtube.com/embed/vbrDF5GXnas" frameborder="0" allowfullscreen></iframe>
+    <div class="video-demo-contenedor">
+      <div class="video-demo">
+          <div class="contenedor-iframe">
+            <iframe class="iframe" width="560" height="315" src="https://www.youtube.com/embed/vbrDF5GXnas" frameborder="0" allowfullscreen></iframe>
+          </div>
+      </div>
     </div>
     <article class="guitarra"><!-- guitarra 1 -->
         <img data-src="images/invie-acustica.png" width="350"  alt="Guitarra Invie Acustica" class="right">
@@ -112,8 +116,8 @@
         </form>
       </div>
   </footer>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/blazy/1.8.2/blazy.min.js">
-  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/blazy/1.8.2/blazy.min.js"></script>
   <script>
   var consulta = window.matchMedia("(max-width: 500px)");
   consulta.addListener(mediaQuery);
@@ -125,6 +129,18 @@
 {
   $menu.classList.toggle("active");
   $burguerButton.classList.toggle("icon-close");
+}
+
+  function showMenu()
+{
+  $menu.classList.add("active");
+  // $burguerButton.classList.toggle("icon-close");
+}
+
+  function hideMenu()
+{
+  $menu.classList.remove("active");
+  // $burguerButton.classList.toggle("icon-close");
 }
 
   function mediaQuery()
@@ -152,6 +168,12 @@
     //   $menu.classList.toggle("active");
     //   $burguerButton.classList.toggle("icon-close");
     // };
-  </script>
+
+    // Gestos touch
+  var $body = document.body;
+  var gestos = new Hammer($body);
+  gestos.on("swipeleft", hideMenu);
+  gestos.on("swiperight", showMenu);
+</script>
 </body>
 </html>

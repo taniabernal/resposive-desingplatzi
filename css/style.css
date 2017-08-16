@@ -81,6 +81,7 @@ table, td, th{
     position:relative;
 }
 .background{
+    background-color: #466173;
     background-image: url("../images/background.png");
     background-size: cover;
 }
@@ -293,14 +294,35 @@ table, td, th{
   display: inline-block;
   background: #395667;
   cursor: pointer;
-  position: absolute;
+  position: fixed;
   left: 20px;
   top: 20px;
+  color: white;
   z-index: 3;
+  display: none;
 
 }
 
+.video-demo{
+  max-width: 500px;
+  width: 100%;
+  border: 5px solid #3c5b6e;
+}
+.video-demo-contenedor{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 80px;
+}
 @media screen and (max-width: 800px) {
+
+/*Precios*/
+  .tabla{
+    margin: 50px 20px;
+  }
+  .tabla .contenedor{
+    overflow: auto;
+    border: 1px solid #273b47;
+  }
 
   /*Portada*/
 
@@ -321,6 +343,9 @@ table, td, th{
     /*Portada*/
 
     /*Guitarras*/
+    .video-demo-contenedor{
+      margin-bottom: 30px;
+    }
     .guitarras{
       text-align: center;
     }
@@ -375,7 +400,7 @@ table, td, th{
     padding: 5px;
   }
   textarea{
-    width: 300px;
+    width: 500px;
   }
   input[type="radio"],
   input[type="checkbox"]{
@@ -403,16 +428,38 @@ table, td, th{
   .menu ul{
     padding: 0;
   }
+  /*Guitarras*/
+  /*.video-demo{
+    margin: 0 10px;
+  }*/
 }
+
 @media screen and (max-width: 500px){
+    .portada .button{
+      display: block;
+    }
+
     /*Portada*/
+
+    .precios .header .logotipo{
+      margin: 50px 0;
+    }
+    .burguer-button{
+      display: block;
+    }
     .portada .contenedor{
+      position: static;
+    }
+    .header{
+      position: static;
+    }
+    .header .contenedor{
       position: static;
     }
     .menu{
 
       background: rgba(255, 60, 88, .8);
-      position: absolute;
+      position: fixed;
       left: -100%;
       top: 0;
       z-index: 2;
@@ -461,7 +508,17 @@ table, td, th{
     .title-b{
       font-size: 30px;
     }
+    .video-demo-contenedor{
+      margin: 0 10px 30px 10px;
+    }
     /*Guitarras*/
+
+
+    /*Footer*/
+
+    .col2{
+      align-items: stretch;
+    }
 
     .contenedor-iframe{
      position:relative;
@@ -476,4 +533,10 @@ table, td, th{
      height: 100%;
      width: 100%;
 }
+}
+
+@media screen and(-webkit-min-device-pixel-ratio: 2){
+  .background{
+    background-image: url("../images/background.png");
+  }
 }
